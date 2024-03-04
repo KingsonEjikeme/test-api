@@ -10,9 +10,9 @@ const connect = async () => {
         return;
     }
 
-    if(connectionState === 2){ // Connecting...
-        return;
-    }
+    // if(connectionState === 2){ // Connecting...
+    //     return;
+    // }
 
     try {
         mongoose.connect(MONGODB_URI!, {
