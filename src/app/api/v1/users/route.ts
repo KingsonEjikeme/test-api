@@ -19,7 +19,7 @@ const ObjectId = require("mongoose").Types.ObjectId;
 export const GET = async () => {
   try {
     await connect();
-    const users = await User.find();
+    const users = await User.find().select("-password");
     return new NextResponse(JSON.stringify({ data: users, statusCode: true }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
