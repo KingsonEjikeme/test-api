@@ -20,7 +20,10 @@ export const GET = async () => {
   try {
     await connect();
     const users = await User.find();
-    return NextResponse.json(JSON.stringify(users), { status: 200 });
+    return new NextResponse(JSON.stringify({ data: users, statusCode: true }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
     return new NextResponse("Error in fetching users" + error, { status: 500 });
   }
